@@ -36,6 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 #scss
-/styles/style.scss
+/styles/style.css
 /styles/style.css.map
 
