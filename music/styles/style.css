@@ -34,8 +34,6 @@
   background: linear-gradient(174deg, rgb(175, 221, 221) 0%, rgb(201, 235, 233) 33%);
 }
 .container .player img {
-  -o-object-fit: cover;
-     object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .container .player .details {
@@ -46,13 +44,6 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
-}
-.container .player .details .name {
-  font-size: 20px;
-  font-weight: bold;
-}
-.container .player .details .artist {
-  font-size: 16px;
 }
 .container .player .controls {
   display: flex;
@@ -115,8 +106,4 @@
   background-color: rgb(115, 115, 211);
   height: 20px;
   width: 20px;
-}
-.container .player .controls .volume {
-  position: absolute;
-  margin-left: 370px;
 }/*# sourceMappingURL=style.css.map */

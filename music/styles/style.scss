@@ -36,7 +36,6 @@
       rgba(201, 235, 233, 1) 33%
     );
     img {
-      object-fit: cover;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
     .details {
@@ -45,13 +44,6 @@
       @include center;
       flex-direction: column;
       gap: 10px;
-      .name {
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .artist {
-        font-size: 16px;
-      }
     }
     .controls {
       @include center;
@@ -104,10 +96,6 @@
         background-color: rgb(115, 115, 211);
         height: 20px;
         width: 20px;
-      }
-      .volume {
-        position: absolute;
-        margin-left: 370px;
       }
     }
   }

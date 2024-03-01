@@ -21,10 +21,10 @@ export default function Player() {
   return (
     <>
       <div className="player">
-        <Image src="/im.png" height={200} width={250} />
+        <Image src="/im.png" height={200} width={250} style={{objectFit:"cover"}} />
         <div className="details">
-          <p className="name">Name</p>
-          <p className="artist">Artist</p>
+          <p className="name" style={{fontSize:"20px",fontWeight:"bold"}}>Name</p>
+          <p className="artist" style={{fontSize:"16px"}}>Artist</p>
         </div>
         <div className="controls">
           <div className="buttons">
@@ -40,7 +40,7 @@ export default function Player() {
           </div>
           <div className="bar">
             <input type="range" className="range" style={{width:"300px"}}/>
-            <button className="volume" onClick={changeMute}>
+            <button className="volume" onClick={changeMute} style={{position:"absolute",marginLeft:"370px"}}>
               <Image src={mute} height={20} width={20} />
             </button>
           </div>
