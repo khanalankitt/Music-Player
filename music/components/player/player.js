@@ -1,5 +1,23 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 export default function Player() {
+  const [playPause, setPlayPause] = useState("/play.png");
+  const [mute, setMute] = useState("/volume.png");
+  const changePlayPause = () => {
+    if (playPause == "/play.png") {
+      setPlayPause("/pause.png");
+    } else {
+      setPlayPause("/play.png");
+    }
+  };
+  const changeMute = () => {
+    if (mute == "/mute.png") {
+      setMute("/volume.png");
+    } else {
+      setMute("/mute.png");
+    }
+  };
   return (
     <>
       <div className="player">
@@ -13,30 +31,23 @@ export default function Player() {
             <button>
               <Image src="/previous.png" height={20} width={20} />
             </button>
-            <button>
-              <Image src="/play.png" height={20} width={20} />
+            <button className="play" onClick={changePlayPause}>
+              <Image src={playPause} height={25} width={25} />
             </button>
             <button>
               <Image src="/next.png" height={20} width={20} />
             </button>
           </div>
           <div className="bar">
-            <input type="range" name="" id="" />
-            <button>
-              <Image src="/volume.png" height={20} width={20} />
+            <input type="range" className="range"/>
+            <button className="volume" onClick={changeMute}>
+              <Image src={mute} height={20} width={20} />
             </button>
           </div>
-          <div className="others">
-            <button>
-              <Image src="/bar.png" height={20} width={20} />
-            </button>
-            <button>
-              <Image src="/full.png" height={20} width={20} />
-            </button>
-            <button>
-              <Image src="/shuffle.png" height={20} width={20} />
-            </button>
-          </div>
+          <p>
+            <span className="span-left">0:00</span>
+            <span className="span-left">-0:00</span>
+          </p>
         </div>
       </div>
     </>
