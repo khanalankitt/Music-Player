@@ -1,7 +1,10 @@
+import Sidebar from "@/components/sidebar/sidebar";
+import Player from "@/components/player/player";
 export default function Home() {
   return (
     <div className="container">
-      <h1>Music Player</h1>
+      <Sidebar/>
+      <Player/>
     </div>
   );
 }

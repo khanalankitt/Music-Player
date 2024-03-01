@@ -1,0 +1,77 @@
+@mixin center(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.container{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 600px;
+    width: 900px;
+    border: 2px solid midnightblue;
+    @include center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    .sidebar{
+        width: 40%;
+        height: 95%;
+        border: 2px solid red;
+    }
+    .player{
+        @include center;
+        flex-direction: column;
+        width: 58%;
+        height: 95%;
+        border: 2px solid green;
+        background: rgb(152,160,157);
+        background: linear-gradient(174deg, rgba(152,160,157,1) 0%, rgba(170,218,218,0.9248949579831933) 33%);
+        img{
+            object-fit: cover;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .details{
+            height: 100px;
+            border: 1px solid red;
+            width: 100%;
+            @include center;
+            flex-direction: column;
+            gap: 10px;
+            .name{
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .artist{
+                font-size: 16px;
+            }
+        }
+        .controls{
+            @include center;
+            flex-direction: column;
+            img{
+                height: 50%;
+                width: 50%;
+            }
+            button{
+                @include center;
+                height: 40px;
+                width: 40px;
+                background: #b0d3d2;
+                border-radius: 50%;
+                border: none;
+                cursor: pointer;
+            }
+            .buttons,.bar,.others{
+                @include center;
+                gap: 20px;
+                margin-top: 20px;
+            }
+        }
+    }
+}
