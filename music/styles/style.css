@@ -80,7 +80,8 @@
 .container .player .controls button:hover {
   background: #b2dcdc;
 }
-.container .player .controls .buttons, .container .player .controls .bar {
+.container .player .controls .buttons,
+.container .player .controls .bar {
   display: flex;
   justify-content: center;
   align-items: center;
