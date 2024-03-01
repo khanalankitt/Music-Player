@@ -31,7 +31,7 @@ export default function Player() {
             <button>
               <Image src="/previous.png" height={20} width={20} />
             </button>
-            <button className="play" onClick={changePlayPause}>
+            <button className="play" onClick={changePlayPause} style={{height:"50px",width:"50px"}}>
               <Image src={playPause} height={25} width={25} />
             </button>
             <button>
@@ -39,7 +39,7 @@ export default function Player() {
             </button>
           </div>
           <div className="bar">
-            <input type="range" className="range"/>
+            <input type="range" className="range" style={{width:"300px"}}/>
             <button className="volume" onClick={changeMute}>
               <Image src={mute} height={20} width={20} />
             </button>
