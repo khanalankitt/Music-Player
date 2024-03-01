@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#scss
+music\styles\style.scss
+music\styles\style.css.map
