@@ -49,7 +49,6 @@ async function getTopTracks(){
 }
 
 const topTracks = await getTopTracks();
-console.log(topTracks)
 export default function Sidebar(){
     return (
         <>
