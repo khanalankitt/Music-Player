@@ -31,11 +31,10 @@ export function SongItem(props){
     );
 }
 
-const token = 'BQCP0F5SvOtkMFWz--3TGTz97Ee8sVyQ8HqBWbQjMdD7XUokChbZckI3qOHZCj9CkodMywtlkixcCqvoJ0Xuy1Ay01HrsydJUMCOYFfNsNhLybAEuRkzYLciHqqRYQ7LYeGMEfaqG8ot5E2exDdrMBf55u3CwS93wMcRzr4XWBlh3r_LCdYFshJx-du5QlE5XpVQFP4c9XHZldMW2dl4v3urI-pqHR5-e5vT96tQMWliF8b9iT85pgc_3KEQG5HGtkevGMs7GO4uAPEBOmG1e1VQ';
 async function fetchWebApi(endpoint, method, body) {
   const res = await fetch(`https://api.spotify.com/${endpoint}`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${process.env.TOKEN}`,
     },
     method,
     body:JSON.stringify(body)
