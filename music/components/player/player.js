@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-export default function Player() {
+export default function Player(props) {
   const [playPause, setPlayPause] = useState("/play.png");
   const [mute, setMute] = useState("/volume.png");
   const changePlayPause = () => {
@@ -30,10 +30,10 @@ export default function Player() {
         />
         <div className="details">
           <p className="name" style={{ fontSize: "20px", fontWeight: "bold" }}>
-            Name
+            Name{props.name}
           </p>
           <p className="artist" style={{ fontSize: "16px" }}>
-            Artist
+            Artist{props.artist}
           </p>
         </div>
         <div className="controls">

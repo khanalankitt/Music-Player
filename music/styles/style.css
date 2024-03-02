@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 .container {
@@ -11,16 +12,11 @@
   transform: translate(-50%, -50%);
   height: 600px;
   width: 900px;
-  border: 2px solid midnightblue;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-}
-.container .sidebar {
-  width: 40%;
-  height: 95%;
 }
 .container .player {
   border-radius: 10px;
@@ -28,7 +24,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 58%;
+  width: 59%;
   height: 100%;
   background: rgb(175, 221, 221);
   background: linear-gradient(174deg, rgb(175, 221, 221) 0%, rgb(201, 235, 233) 33%);
@@ -106,4 +102,80 @@
   background-color: rgb(115, 115, 211);
   height: 20px;
   width: 20px;
+}
+.container .sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+  width: 40%;
+  height: 100%;
+  border-radius: 10px;
+  background: rgb(175, 221, 221);
+  background: linear-gradient(174deg, rgb(180, 227, 227) 0%, rgb(201, 235, 233) 33%);
+  padding: 20px;
+  overflow-y: scroll;
+}
+.container .sidebar h1 {
+  padding-left: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: left;
+  border-bottom: 2px solid grey;
+}
+.container .sidebar .current, .container .sidebar .next {
+  font-size: 18px;
+  text-align: left;
+  width: 100%;
+  padding-left: 10px;
+  font-weight: bold;
+}
+.container .sidebar .songContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 0px;
+}
+.container .sidebar .songContainer:hover {
+  background: rgb(175, 221, 221);
+}
+.container .sidebar .songContainer .duration {
+  margin-top: 3px;
+  font-size: 10px;
+}
+.container .sidebar .songContainer img {
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.container .sidebar .songContainer p {
+  font-size: 14px;
+}
+
+input::-moz-placeholder {
+  font-size: 16px;
+}
+
+input::placeholder {
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }/*# sourceMappingURL=style.css.map */

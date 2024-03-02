@@ -7,6 +7,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 .container {
   position: absolute;
@@ -15,19 +16,14 @@
   transform: translate(-50%, -50%);
   height: 600px;
   width: 900px;
-  border: 2px solid midnightblue;
   @include center;
   justify-content: space-between;
   border-radius: 10px;
-  .sidebar {
-    width: 40%;
-    height: 95%;
-  }
   .player {
     border-radius: 10px;
     @include center;
     flex-direction: column;
-    width: 58%;
+    width: 59%;
     height: 100%;
     background: rgb(175, 221, 221);
     background: linear-gradient(
@@ -98,5 +94,73 @@
         width: 20px;
       }
     }
+  }
+  .sidebar {
+    @include center;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 40%;
+    height: 100%;
+    border-radius: 10px;
+    background: rgb(175, 221, 221);
+    background: linear-gradient(
+      174deg,
+      rgb(180, 227, 227) 0%,
+      rgba(201, 235, 233, 1) 33%
+    );
+    padding:20px;
+    overflow-y: scroll;
+    h1{
+      padding-left: 5px;
+      width: 100%;
+      @include center;
+      justify-content: left;
+      border-bottom: 2px solid grey;
+    }
+    .current,.next{
+      font-size: 18px;
+      text-align: left;
+      width: 100%;
+      padding-left:10px;
+      font-weight: bold;
+    }
+    .songContainer{
+      width: 100%;
+      @include center;
+      justify-content: flex-start;
+      gap: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px 0px;
+      &:hover{
+        background: rgb(175, 221, 221);;
+      }
+      .duration{
+        margin-top: 3px;
+        font-size: 10px;
+      }
+      img{
+        border-radius: 5px;
+        margin-left: 5px;
+      }
+      p{
+        font-size: 14px;
+      }
+    }
+  }
+}
+input::placeholder{
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+  &:hover{
+    background: #555; 
   }
 }
