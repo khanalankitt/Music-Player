@@ -37,4 +37,4 @@ next-env.d.ts
 
 .env
 
-.scss
+/styles/style.scss
