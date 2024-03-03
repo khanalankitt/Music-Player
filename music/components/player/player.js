@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+
 export default function Player(props) {
   const [playPause, setPlayPause] = useState("/play.png");
   const [mute, setMute] = useState("/volume.png");
@@ -22,7 +23,7 @@ export default function Player(props) {
     <>
       <div className="player">
         <Image
-          src="/im.png"
+          src={props.href}
           height={200}
           width={250}
           style={{ objectFit: "cover" }}
@@ -30,10 +31,10 @@ export default function Player(props) {
         />
         <div className="details">
           <p className="name" style={{ fontSize: "20px", fontWeight: "bold" }}>
-            Name{props.name}
+            {props.name}
           </p>
           <p className="artist" style={{ fontSize: "16px" }}>
-            Artist{props.artist}
+            {props.artist}
           </p>
         </div>
         <div className="controls">
@@ -64,7 +65,7 @@ export default function Player(props) {
           </div>
           <p>
             <span className="span-left">0:00</span>
-            <span className="span-left">-0:00</span>
+            <span className="span-left">-{props.duration}</span>
           </p>
         </div>
       </div>

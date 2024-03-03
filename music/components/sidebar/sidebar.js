@@ -50,12 +50,17 @@ async function getTopTracks(){
 
 const topTracks = await getTopTracks();
 export default function Sidebar(){
+    let thref,tartist,tduration,tname;
     return (
         <>
             <aside className="sidebar">
                 <h1>My Spotify Songs</h1>
                 {
                     topTracks.map((track)=>{
+                        thref = track.album.images[0].url;
+                        tartist=track.artists.map((artist)=>artist.name);
+                        tduration = calculateDuration(track.duration_ms);
+                        tname = track.name;
                         return(
                             <SongItem
                                 key={track.id}
@@ -68,7 +73,7 @@ export default function Sidebar(){
                     })
                 }
             </aside>
-            <Player />
+            <Player href={thref} artist={tartist} duration={tduration} name={tname}/>
         </>
     );  
 }
