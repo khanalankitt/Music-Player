@@ -1,17 +1,9 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-
 export default function Player(props) {
   const [playPause, setPlayPause] = useState("/play.png");
   const [mute, setMute] = useState("/volume.png");
-  const changePlayPause = () => {
-    if (playPause == "/play.png") {
-      setPlayPause("/pause.png");
-    } else {
-      setPlayPause("/play.png");
-    }
-  };
   const changeMute = () => {
     if (mute == "/mute.png") {
       setMute("/volume.png");
@@ -19,6 +11,17 @@ export default function Player(props) {
       setMute("/mute.png");
     }
   };
+  const changePlayPause = () => {
+    if (playPause == "/play.png") {
+      setPlayPause("/pause.png");
+      audio.play();
+    }else {
+      setPlayPause("/play.png");
+      audio.pause();
+    }
+  };
+  const [audio] = useState( typeof Audio !== "undefined" && new Audio(props.songLink));
+  
   return (
     <>
       <div className="player">

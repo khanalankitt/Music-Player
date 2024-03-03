@@ -1,6 +1,6 @@
+"use client"
 import Image from "next/image"
 import Player from "../player/player";
-
 function calculateDuration(duration){
     let totalSeconds = Math.floor(duration / 1000);
     let minutes = Math.floor(totalSeconds / 60);
@@ -31,36 +31,28 @@ export function SongItem(props){
     );
 }
 
-async function fetchWebApi(endpoint, method, body) {
-  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.TOKEN}`,
-    },
-    method,
-    body:JSON.stringify(body)
-  });
-  return await res.json();
-}
-
-async function getTopTracks(){
-  return (await fetchWebApi(
-    'v1/me/top/tracks?time_range=long_term&limit=20', 'GET'
-  )).items;
-}
-
-const topTracks = await getTopTracks();
-export default function Sidebar(){
-    let thref,tartist,tduration,tname;
+export default function Sidebar({topTracksProp}){
+    let topTracks = topTracksProp;
+    let tartist =[],tduration = [],tname = [],tpreview = [],thref = [];
+    for(let i = 0;i < 20;i++){
+        thref[i] = topTracks[i].album.images[0].url;
+        tartist[i]=topTracks[i].artists.map((artist)=>artist.name);
+        tduration[i] = calculateDuration(topTracks[i].duration_ms);
+        tname[i] = topTracks[i].name;
+        tpreview[i] = topTracks[i].preview_url;
+    }
     return (
         <>
             <aside className="sidebar">
-                <h1>My Spotify Songs</h1>
+                <h1>My Top Spotify Songs</h1>
                 {
                     topTracks.map((track)=>{
-                        thref = track.album.images[0].url;
-                        tartist=track.artists.map((artist)=>artist.name);
-                        tduration = calculateDuration(track.duration_ms);
-                        tname = track.name;
+                        let i = 6;
+                        thref = topTracks[i].album.images[0].url;
+                        tartist=topTracks[i].artists.map((artist)=>artist.name);
+                        tduration = calculateDuration(topTracks[i].duration_ms);
+                        tname = topTracks[i].name;
+                        tpreview = topTracks[i].preview_url;
                         return(
                             <SongItem
                                 key={track.id}
@@ -73,7 +65,13 @@ export default function Sidebar(){
                     })
                 }
             </aside>
-            <Player href={thref} artist={tartist} duration={tduration} name={tname}/>
+            <Player 
+                href={thref} 
+                artist={tartist} 
+                duration={tduration} 
+                name={tname}
+                songLink={tpreview}
+            />
         </>
     );  
 }
