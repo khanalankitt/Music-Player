@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+
 export default function Player(props) {
   const [playPause, setPlayPause] = useState("/play.png");
   const [mute, setMute] = useState("/volume.png");
@@ -25,6 +26,7 @@ export default function Player(props) {
       setMute("/mute.png");
     }
   };
+
   const changePlayPause = () => {
     if (playPause == "/play.png") {
       setPlayPause("/pause.png");
@@ -34,6 +36,7 @@ export default function Player(props) {
       audio.pause();
     }
   };
+
   return (
     <>
       <div className="player">
