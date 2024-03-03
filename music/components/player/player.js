@@ -1,9 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 export default function Player(props) {
   const [playPause, setPlayPause] = useState("/play.png");
   const [mute, setMute] = useState("/volume.png");
+  const [audio, setAudio] = useState(null);
+
+  useEffect(() => {
+    if (audio) {
+      audio.pause();
+      setPlayPause("/play.png");
+    }
+    if (props.songLink) {
+      setAudio(new Audio(props.songLink));
+    } else {
+      alert("Song preview not available");
+    }
+  }, [props.songLink]);
+
   const changeMute = () => {
     if (mute == "/mute.png") {
       setMute("/volume.png");
@@ -15,13 +29,11 @@ export default function Player(props) {
     if (playPause == "/play.png") {
       setPlayPause("/pause.png");
       audio.play();
-    }else {
+    } else {
       setPlayPause("/play.png");
       audio.pause();
     }
   };
-  const [audio] = useState( typeof Audio !== "undefined" && new Audio(props.songLink));
-  
   return (
     <>
       <div className="player">
@@ -39,6 +51,9 @@ export default function Player(props) {
           <p className="artist" style={{ fontSize: "16px" }}>
             {props.artist}
           </p>
+          <p>
+            <span className="span-left">{props.duration}</span>
+          </p>
         </div>
         <div className="controls">
           <div className="buttons">
@@ -50,26 +65,19 @@ export default function Player(props) {
               onClick={changePlayPause}
               style={{ height: "50px", width: "50px" }}
             >
-              <Image src={playPause} height={25} width={25} alt="icon"/>
+              <Image src={playPause} height={25} width={25} alt="icon" />
             </button>
             <button>
-              <Image src="/next.png" height={20} width={20} alt="icon"/>
+              <Image src="/next.png" height={20} width={20} alt="icon" />
             </button>
-          </div>
-          <div className="bar">
-            <input type="range" className="range" style={{ width: "300px" }} />
             <button
               className="volume"
               onClick={changeMute}
               style={{ position: "absolute", marginLeft: "370px" }}
             >
-              <Image src={mute} height={20} width={20} alt="icon"/>
+              <Image src={mute} height={20} width={20} alt="icon" />
             </button>
           </div>
-          <p>
-            <span className="span-left">0:00</span>
-            <span className="span-left">-{props.duration}</span>
-          </p>
         </div>
       </div>
     </>
