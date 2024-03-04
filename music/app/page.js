@@ -1,10 +1,11 @@
 import Sidebar from "@/components/sidebar/sidebar";
 import topTracks from "@/components/server";
-export default function Home() {
+export default async function Home() {
+  const fetchedTopTracks = await topTracks; 
   return (
     <>
       <div className="container">
-        <Sidebar topTracksProp={topTracks}/>
+        <Sidebar topTracksProp={fetchedTopTracks}/>
       </div>
     </>
   );
