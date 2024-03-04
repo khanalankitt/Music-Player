@@ -17,8 +17,6 @@ export default function Player(props) {
       naya = new Audio(props.songLink);
       setAudio(naya);
       setMute("/volume.png");
-    } else {
-      alert("Song preview not available");
     }
   }, [props.songLink]);
 
@@ -77,10 +75,15 @@ export default function Player(props) {
               className="volume"
               onClick={changeMute}
               style={{ position: "absolute", marginLeft: "330px" }}
-            >
+              >
               <Image src={mute} height={18} width={18} alt="icon" />
             </button>
           </div>
+              <p style={{
+                height:"10px",
+                marginTop:"-15px",
+                fontSize:"12px"
+              }}>{props.available}</p>
         </div>
         <br />
         <a

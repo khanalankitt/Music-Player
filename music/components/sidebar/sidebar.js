@@ -75,15 +75,28 @@ export default function Sidebar({ topTracksProp }) {
           <p>Fetch Failed</p>
         )}
       </aside>
-      
-      <Player
-        href={thref[index]}
-        artist={tartist[index]}
-        duration={tduration[index]}
-        name={tname[index]}
-        songLink={tpreview[index]}
-        externallink={externallink[index]}
-      />
+      {
+      (tpreview[index] != null) ?
+          <Player
+            href={thref[index]}
+            artist={tartist[index]}
+            duration={tduration[index]}
+            name={tname[index]}
+            songLink={tpreview[index]}
+            externallink={externallink[index]}
+            available={``}
+          />
+        :
+          <Player
+          href={thref[index]}
+          artist={tartist[index]}
+          duration={tduration[index]}
+          name={tname[index]}
+          songLink={tpreview[index]}
+          externallink={externallink[index]}
+          available={`Not available`}
+        />
+      }
     </>
   );
 }
