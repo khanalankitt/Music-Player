@@ -13,7 +13,8 @@ export default function Player(props) {
       setPlayPause("/play.png");
     }
     if (props.songLink) {
-      setAudio(new Audio(props.songLink));
+      let naya = new Audio(props.songLink)
+      setAudio(naya);
     } else {
       alert("Song preview not available");
     }
@@ -60,8 +61,13 @@ export default function Player(props) {
         </div>
         <div className="controls">
           <div className="buttons">
-            <button>
-              <Image src="/previous.png" height={20} width={20} alt="icon" />
+            <button >
+              <Image 
+                src="/previous.png" 
+                height={20} 
+                width={20} 
+                alt="icon" 
+              />
             </button>
             <button
               className="play"
@@ -70,8 +76,13 @@ export default function Player(props) {
             >
               <Image src={playPause} height={25} width={25} alt="icon" />
             </button>
-            <button>
-              <Image src="/next.png" height={20} width={20} alt="icon" />
+            <button >
+              <Image 
+                src="/next.png" 
+                height={20} 
+                width={20} 
+                alt="icon" 
+              />
             </button>
             <button
               className="volume"

@@ -25,7 +25,7 @@ export default function Sidebar({ topTracksProp }) {
     tpreview = [],
     thref = [];
 
-  for (let i = 0; i < topTracks.length; i++) {
+  for (let i = 0; i < 20; i++) {
     thref[i] = topTracks[i].album.images[0].url;
     tartist[i] = topTracks[i].artists.map((artist) => artist.name);
     tduration[i] = calculateDuration(topTracks[i].duration_ms);
@@ -73,7 +73,7 @@ export default function Sidebar({ topTracksProp }) {
           <p>Fetch Failed</p>
         )}
       </aside>
-
+      
       <Player
         href={thref[index]}
         artist={tartist[index]}
