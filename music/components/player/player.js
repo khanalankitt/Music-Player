@@ -7,27 +7,32 @@ export default function Player(props) {
   const [mute, setMute] = useState("/volume.png");
   const [audio, setAudio] = useState(null);
 
+  let naya;
   useEffect(() => {
     if (audio) {
       audio.pause();
       setPlayPause("/play.png");
     }
     if (props.songLink) {
-      let naya = new Audio(props.songLink)
+      naya = new Audio(props.songLink);
       setAudio(naya);
+      setMute("/volume.png");
     } else {
       alert("Song preview not available");
     }
   }, [props.songLink]);
 
   const changeMute = () => {
-    if (mute == "/mute.png") {
-      setMute("/volume.png");
-    } else {
-      setMute("/mute.png");
+    if (audio) {
+      if (audio.muted) {
+        audio.muted = false;
+        setMute("/volume.png");
+      } else {
+        audio.muted = true;
+        setMute("/mute.png");
+      }
     }
   };
-
   const changePlayPause = () => {
     if (playPause == "/play.png") {
       setPlayPause("/pause.png");
@@ -45,7 +50,7 @@ export default function Player(props) {
           src={props.href}
           height={200}
           width={250}
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "cover",borderRadius:"10px", }}
           alt="icon"
         />
         <div className="details">
@@ -61,38 +66,57 @@ export default function Player(props) {
         </div>
         <div className="controls">
           <div className="buttons">
-            <button >
-              <Image 
-                src="/previous.png" 
-                height={20} 
-                width={20} 
-                alt="icon" 
-              />
-            </button>
             <button
               className="play"
               onClick={changePlayPause}
-              style={{ height: "50px", width: "50px" }}
             >
-              <Image src={playPause} height={25} width={25} alt="icon" />
-            </button>
-            <button >
-              <Image 
-                src="/next.png" 
-                height={20} 
-                width={20} 
-                alt="icon" 
-              />
+              Song Preview
+              <Image src={playPause} height={20} width={20} alt="icon" />
             </button>
             <button
               className="volume"
               onClick={changeMute}
-              style={{ position: "absolute", marginLeft: "370px" }}
+              style={{ position: "absolute", marginLeft: "330px" }}
             >
-              <Image src={mute} height={20} width={20} alt="icon" />
+              <Image src={mute} height={18} width={18} alt="icon" />
             </button>
           </div>
         </div>
+        <br />
+        <a
+          href={props.externallink}
+          target="_blank"
+          style={{
+            textDecorationLine: "none",
+            margin: "0px",
+            height: "30px",
+          }}
+        >
+          <button
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "200px",
+              gap: "10px",
+              fontSize: "16px",
+              cursor: "pointer",
+              borderRadius: "10px",
+              border: "none",
+              padding: "5px",
+              background: "lightgreen",
+              fontWeight: "bold",
+            }}
+          >
+            Listen in spotify
+            <Image
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Spotify.png/768px-Spotify.png"
+              height={30}
+              width={30}
+              alt="imag"
+            />
+          </button>
+        </a>
       </div>
     </>
   );

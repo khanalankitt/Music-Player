@@ -23,7 +23,8 @@ export default function Sidebar({ topTracksProp }) {
     tduration = [],
     tname = [],
     tpreview = [],
-    thref = [];
+    thref = [],
+    externallink = [];
 
   for (let i = 0; i < 20; i++) {
     thref[i] = topTracks[i].album.images[0].url;
@@ -31,6 +32,7 @@ export default function Sidebar({ topTracksProp }) {
     tduration[i] = calculateDuration(topTracks[i].duration_ms);
     tname[i] = topTracks[i].name;
     tpreview[i] = topTracks[i].preview_url;
+    externallink[i] = topTracks[i].external_urls.spotify;
   }
 
   const handleClick = (i) => {
@@ -80,6 +82,7 @@ export default function Sidebar({ topTracksProp }) {
         duration={tduration[index]}
         name={tname[index]}
         songLink={tpreview[index]}
+        externallink={externallink[index]}
       />
     </>
   );

@@ -54,11 +54,7 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
-}
-.container .player .controls img {
-  height: 40%;
-  width: 40%;
-  box-shadow: none;
+  margin-top: 10px;
 }
 .container .player .controls button {
   display: flex;
@@ -70,16 +66,32 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  transition: 0.1s linear;
 }
 .container .player .controls button:hover {
-  background: #b2dcdc;
+  background: #a1d3d3;
 }
 .container .player .controls .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-top: 20px;
+}
+.container .player .controls .buttons .play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  background: #b8e1e1;
+  font-weight: bold;
+}
+.container .player .controls .buttons .play:hover {
+  background: #a1d3d3;
 }
 .container .sidebar {
   display: flex;
@@ -115,6 +127,7 @@
   border-radius: 5px;
   cursor: pointer;
   padding: 5px 0px;
+  transition: 0.1s linear;
 }
 .container .sidebar .songContainer:hover {
   background: rgb(175, 221, 221);
