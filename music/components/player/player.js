@@ -19,7 +19,7 @@ export default function Player(props) {
       setMute("/volume.png");
     }
   }, [props.songLink]);
-
+    
   const changeMute = () => {
     if (audio) {
       if (audio.muted) {
