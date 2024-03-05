@@ -92,7 +92,7 @@ export default function Player(props) {
           target="_blank"
           style={{
             textDecorationLine: "none",
-            margin: "-10px 0px 0px 0px",
+            margin: "0px",
             height: "30px",
           }}
         >
