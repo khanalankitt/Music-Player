@@ -48,6 +48,9 @@
   flex-direction: column;
   gap: 10px;
 }
+.container .player .details p {
+  text-align: center;
+}
 .container .player .controls {
   display: flex;
   justify-content: center;
@@ -110,14 +113,29 @@
 }
 .container .sidebar h1 {
   padding-left: 5px;
-  width: 100%;
+  justify-content: left;
+  border-bottom: 2px solid grey;
+  position: fixed;
+  width: 350px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: left;
-  border-bottom: 2px solid grey;
+  margin-top: -20px;
+  border-top-left-radius: 10px;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  text-align: center;
 }
-.container .sidebar .songContainer {
+.container .sidebar .songs {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.container .sidebar .songs .songContainer {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -129,18 +147,18 @@
   padding: 5px 0px;
   transition: 0.1s linear;
 }
-.container .sidebar .songContainer:hover {
+.container .sidebar .songs .songContainer:hover {
   background: rgb(175, 221, 221);
 }
-.container .sidebar .songContainer .duration {
+.container .sidebar .songs .duration {
   margin-top: 3px;
   font-size: 10px;
 }
-.container .sidebar .songContainer img {
+.container .sidebar .songs img {
   border-radius: 5px;
   margin-left: 5px;
 }
-.container .sidebar .songContainer p {
+.container .sidebar .songs p {
   font-size: 14px;
 }
 
@@ -154,4 +172,55 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media (max-width: 920px) {
+  .container {
+    height: 700px;
+    width: 340px;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .container .sidebar {
+    height: 400px;
+    width: 350px;
+    gap: 5px;
+  }
+  .container .sidebar .songs {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .container .sidebar .songs .songContainer {
+    padding: 3px;
+  }
+  .container .sidebar h1 {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .player {
+    height: 600px;
+    width: 350px;
+  }
+  .container .player .details {
+    margin-top: 5px;
+    gap: 5px;
+  }
+  .container .player .controls .buttons .play {
+    width: 200px;
+  }
+  .container .player .controls .buttons .volume {
+    right: 20px;
+  }
+  .container .player .artistImage {
+    height: 150px;
+    width: 150px;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -45,6 +45,7 @@ export default function Player(props) {
     <>
       <div className="player">
         <Image
+        className="artistImage"
           src={props.href}
           height={200}
           width={250}
@@ -91,7 +92,7 @@ export default function Player(props) {
           target="_blank"
           style={{
             textDecorationLine: "none",
-            margin: "0px",
+            margin: "-10px 0px 0px 0px",
             height: "30px",
           }}
         >

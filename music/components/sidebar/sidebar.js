@@ -41,6 +41,7 @@ export default function Sidebar({ topTracksProp }) {
     <>
       <aside className="sidebar">
         <h1>My Top Spotify Songs</h1>
+        <div className="songs">
         {
           topTracks?.map((track, i) => {
             return (
@@ -70,6 +71,7 @@ export default function Sidebar({ topTracksProp }) {
             );
           })
         }
+        </div>
       </aside>
       {
       (tpreview[index] != null) ?
