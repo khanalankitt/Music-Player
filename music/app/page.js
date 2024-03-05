@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <div className="container">
-        <Sidebar topTracksProp={topTracks}/>
+          <Sidebar topTracksProp={topTracks}/>
       </div>
     </>
   );

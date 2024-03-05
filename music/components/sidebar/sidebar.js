@@ -16,9 +16,7 @@ function calculateDuration(duration) {
 
 export default function Sidebar({ topTracksProp }) {
   const [index, setIndex] = useState(0);
-
   let topTracks = topTracksProp;
-
   let tartist = [],
     tduration = [],
     tname = [],
@@ -43,8 +41,8 @@ export default function Sidebar({ topTracksProp }) {
     <>
       <aside className="sidebar">
         <h1>My Top Spotify Songs</h1>
-        {topTracks != null ? (
-          topTracks.map((track, i) => {
+        {
+          topTracks?.map((track, i) => {
             return (
               <div
                 className="songContainer"
@@ -71,9 +69,7 @@ export default function Sidebar({ topTracksProp }) {
               </div>
             );
           })
-        ) : (
-          <p>Fetch Failed</p>
-        )}
+        }
       </aside>
       {
       (tpreview[index] != null) ?
